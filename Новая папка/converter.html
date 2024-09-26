@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Конвертер $HMSTR</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 20px;
+        }
+        input {
+            padding: 10px;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Конвертер $HMSTR</h1>
+    <p>Текущий курс $HMSTR: 1 $HMSTR = 0.05 USD</p>
+
+    <label for="hmstrAmount">Введите количество $HMSTR:</label>
+    <input type="number" id="hmstrAmount" placeholder="Количество $HMSTR" oninput="convertCurrency()">
+    <p id="convertedSum"></p>
+
+    <script>
+        function convertCurrency() {
+            const hmstrToUSD = 0.05;
+            const uzsToUSD = 10925; // Пример курса: 1 USD = 10,925 UZS
+            const hmstrAmount = document.getElementById("hmstrAmount").value;
+            
+            if (hmstrAmount > 0) {
+                const usdValue = hmstrAmount * hmstrToUSD;
+                const uzsValue = usdValue * uzsToUSD;
+                document.getElementById("convertedSum").innerText = `Это ${usdValue.toFixed(2)} USD или ${uzsValue.toFixed(0)} UZS`;
+            } else {
+                document.getElementById("convertedSum").innerText = "";
+            }
+        }
+    </script>
+</body>
+</html>

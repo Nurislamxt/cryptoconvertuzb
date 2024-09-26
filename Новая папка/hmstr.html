@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Конвертер $HMSTR</title>
+    <style>
+        body {
+            background-image: url('');
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 20px;
+        }
+        input {
+            padding: 10px;
+            margin: 10px;
+        }
+        .logo-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 20px;
+        }
+      
+            width: 80%;
+            height: 80%;
+        
+    </style>
+</head>
+<body>
+    <h1>Конвертер $HMSTR</h1>
+    <div class="logo-container">
+        <div class="logo">
+            <img src="hmstr_logo.png" alt="Логотип криптовалюты">
+        </div>
+    </div>
+    <label for="hmstrAmount">Введите количество $HMSTR:</label>
+    <input type="number" id="hmstrAmount" placeholder="Количество $HMSTR" oninput="convertCurrency()">
+    <p id="convertedSum"></p>
+
+    <script>
+        function convertCurrency() {
+            const hmstrToUSD = 0.009;
+            const uzsToUSD = 10925;
+            const hmstrAmount = document.getElementById("hmstrAmount").value;
+            
+            if (hmstrAmount > 0) {
+                const usdValue = hmstrAmount * hmstrToUSD;
+                const uzsValue = usdValue * uzsToUSD;
+                document.getElementById("convertedSum").innerText = `Это ${usdValue.toFixed(2)} USD или ${uzsValue.toFixed(0)} UZS`;
+            } else {
+                document.getElementById("convertedSum").innerText = "";
+            }
+        }
+    </script>
+</body>
+</html>

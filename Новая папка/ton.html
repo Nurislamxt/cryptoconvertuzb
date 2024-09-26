@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Конвертер $TON</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 20px;
+        }
+        input {
+            padding: 10px;
+            margin: 10px;
+        }
+        .logo {
+            width: 100px; /* Размер логотипа */
+            margin: 20px auto; /* Центрирование логотипа */
+        }
+    </style>
+</head>
+<body>
+    <h1>Конвертер $TON</h1>
+    <img src="ton_logo.png" alt="Логотип $TON" class="logo">
+    <p>Текущий курс $TON: 1 $TON = 5.21 USD</p>
+
+    <label for="notAmount">Введите количество $TON:</label>
+    <input type="number" id="notAmount" placeholder="Количество $TON" oninput="convertCurrency()">
+    <p id="convertedSum"></p>
+
+    <script>
+        function convertCurrency() {
+            const notToUSD = 5.21;
+            const uzsToUSD = 10925;
+            const notAmount = document.getElementById("notAmount").value;
+            
+            if (notAmount > 0) {
+                const usdValue = notAmount * notToUSD;
+                const uzsValue = usdValue * uzsToUSD;
+                document.getElementById("convertedSum").innerText = `Это ${usdValue.toFixed(4)} USD или ${uzsValue.toFixed(0)} UZS`;
+            } else {
+                document.getElementById("convertedSum").innerText = "";
+            }
+        }
+    </script>
+</body>
+</html>
